@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+    <title>Amaarsi Elelphant Transit Home | Signup</title>
+    <head> 
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <meta name="description" content="Orphange for baby elephants">
+        <meta name="keywords" content="elephant,orphange,baby">
+        <meta name="author" content="Amaraja Vijayakumar">
+        <link rel="stylesheet" href="./css/amaarsi.css">
+        <link rel="shortcut icon" type="img/png" href="cutebaby.png">
+        
+       
+    </head>
+    <body>
+ 
+        <div class="wrapper">
+            
+       
+               
+        <nav>
+            <img src="amaarsi2.PNG" class="logo" align="left" margin-left="0px">
+            <div class="menudropdown1">
+        <ul>
+            <li><a href="indexpro.html"target="_blank">Home</a></li>
+            <li>About Us
+            <ul>
+            <li><a href="misvis.html"  target="_blank">Mission & Vision</a></li>
+            <li><a href="boardd.html"target="_blank">Board Members</a></li>
+            </ul>
+          
+            <li>Get Involved
+             <ul>
+            <li><a href="volunteer.html"target="_blank">Volunteer</a></li>
+            <li><a href="adoptelly.html"target="_blank">Adopt now</a></li>
+            <li><a href="donate.html"target="_blank">Donate now</a></li>
+            </ul>
+            <li><a href="abtelly.html"target="_blank">About Elephants</a></li>
+            <li><a href="login.php"target="_blank">Login</a></li>
+            <li><a href="contact.html"target="_blank">Contact Us</a></li>   
+          
+            
+    </ul>            
+    </li>
+    </div>
+    </nav>
+    </div>
+ 
+                <section class="bod">
+                    <div class="container1" style="margin-top: 10%;margin-bottom: 5%;">
+                        <div class="header">
+                            <img src="amaarsifoot.png" class="logo2" style="margin-top:5%;">
+                            <h2>SIGN UP</h2>
+                            <h3>connect with our herd&#128516; </h3>
+                        </div>
+                        
+                        <form class="form" id="form" action="signup.php" method="POST" onsubmit="return checkInputs(); ">
+                            <div class="form-control">
+                                <label for="fname">First Name: </label>
+                                <input type="text" placeholder="first name" id="fname" name="fname">
+                             
+                                <small>Error Message</small>
+                            </div>
+                            <div class="form-control">
+                                <label for="lname">Last Name: </label>
+                                <input type="text" placeholder="last name" id="lname" name="lname">
+                             
+                                <small>Error Message</small>
+                            </div>
+                            <div class="form-control">
+                                <label for="username">Username: </label>
+                                <input type="text" placeholder="username" id="username" name="username">
+                             
+                                <small>Error Message</small>
+                            </div>
+    
+                           
+                            <div class="form-control ">
+                                <label for="email">Email: </label>
+                                <input type="email" placeholder="helo@user.com" id="email" name="email">
+                               
+                                <small>Error Message</small>
+                            </div>
+                            <div class="form-control">
+                                <label for="password">Password: </label>
+                                <input type="password" placeholder="password" id="password" name="password">
+                               
+                                <small>Error Message</small>
+                            </div>
+                            <div class="form-control">
+                                <label for="cpassword">Confirm Password: </label>
+                                <input type="password" placeholder="confirm password" id="cpassword" name="cpassword">
+                               
+                                <small>Error Message</small>
+                            </div>
+                         <button  class="but1" style="width:100%;" name="submit"><span>SIGN UP</span></button>
+                        
+                        </form>
+               </div>
+               <aside >
+                   <img src="signupimg.jpg" style="margin-top:10%;">
+               </aside>
+               </section>
+               <script>
+
+               
+                
+               /* form.addEventListener('submit', (e) => { // 
+                    e.preventDefault();
+                
+                    checkInputs();
+                });*/
+                function checkInputs(){
+                //values from inputs
+                //trim to remove white spaces
+                const form = document.getElementById('form');
+                const fname = document.getElementById('fname');
+                const lname = document.getElementById('lname');
+                const username = document.getElementById('username');
+                const email = document.getElementById('email');
+                const password = document.getElementById('password');
+                const cpassword = document.getElementById('cpassword');
+
+                const fnameValue = fname.value.trim();
+                const lnameValue = lname.value.trim();
+                 const usernameValue = username.value.trim();
+                 const emailValue = email.value.trim();
+                 const passwordValue = password.value.trim();
+                 const cpasswordValue = cpassword.value.trim();
+                if(fnameValue === ""){
+                    setErrorFor(fname,'first name cannot be blank');
+                }else{
+                    setSuccessFor(fname);
+                }
+                if(lnameValue === ""){
+                    setErrorFor(lname,'last name cannot be blank');
+                }else{
+                    setSuccessFor(lname);
+                }
+                 if(usernameValue === ""){
+                     //show error
+                     //add error class
+                     setErrorFor(username,'username cannot be blank');
+                 } else{
+                     //add success class
+                     setSuccessFor(username);
+                    }
+                    if(emailValue === ""){
+                        setErrorFor(email,'email cannot be blank');
+                    }else{
+                        setSuccessFor(email);
+                    }
+                    if(passwordValue === ""){
+                        setErrorFor(password,'password cannot be empty');
+                    }else{
+                        setSuccessFor(password);
+                        }
+                    if (cpasswordValue === ""){
+                        setErrorFor(cpassword,'confirm password cannot be blank');
+                    } else if(passwordValue !== cpasswordValue){
+                        setErrorFor(cpassword,'password does not match');   
+                    }else{
+                        setSuccessFor(cpassword);
+                        return true;
+                    }
+                    return false;
+
+                }
+                
+                function setErrorFor(input,message){
+                    const formControl = input.parentElement; //.form-control
+                    const small = formControl.querySelector('small');
+                    // add error class
+                    formControl.className = 'form-control error';
+                    // add error message inside small
+                    small.innerText = message;
+                    
+                }
+                function setSuccessFor(input){
+                    const formControl = input.parentElement;
+                    formControl.className = 'form-control success';
+                }
+              
+                </script>
+                
+                <footer>
+                    <img src="amaarsifoot.png" class="logo1">
+                     
+                   <div class="container">
+                    <form action="subsform.html" target="_blank">
+                        <button  class="but1"><span>Subscribe To Our Newsletter! &#128024;</span></button>
+                      </form>
+                        <p style="margin-top: 0.5rem;">Amaarsi Elephant Transit Home,Copyright&copy;2021 </p><hr style="margin-top: 0.5rem;">
+                       <div class="foot">
+                        
+                            <div class="footer-heading">
+                                <h2> <a href="indexpro.html"target="_blank">HOME</a></h2>
+                             </div>
+                             <div class="footer-heading ">
+                            <h2>ABOUT US</h2>
+                            <a href="misvis.html"target="_blank">MISSION & VISION</a>
+                            <a href="boardd.html"target="_blank">BOARD MEMBERS</a>
+                          </div>
+                            <div class="footer-heading ">
+                              <h2>GET INVOLVED</h2>
+                              <a href="volunteer.html"target="_blank">volunteer</a>
+                              <a href="adoptelly.html"target="_blank">adopt an elephant</a>
+                              <a href="donate.html"target="_blank">donate now</a>
+                            </div>
+                            <div class="footer-heading">
+                                <h2><a href="abtelly.html"target="_blank">About Elephants</a></h2>
+                              </div>
+                            <div class="footer-heading">
+                              <h2> <a href="contact.html"target="_blank">contact us</a></h2>
+                           </div>
+                           <div class="footer-heading">
+                            <h2><a href="login.html"target="_blank">Login</a></h2>
+                          </div>
+                         </div>
+                         
+                    </div> 
+                    
+                 </footer> 
+         </body>   
+</html>
